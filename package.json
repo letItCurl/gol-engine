@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "description": "Game Of Life in typescript",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "p5": "^1.0.0"
+  },
+  "dependencies": {
+    "mathjs": "^6.6.2"
+  }
 }
