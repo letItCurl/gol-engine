@@ -2,19 +2,15 @@ import SocialGroups from './socialGroups'
 
 interface Exterior{
     map:Array<Array<number>>;
+    history:Array<Array<number>>;
 }
 
 export default class World implements Exterior {
-
     map:Array<Array<number>>;
-    name:string;
-
-    constructor(name:string){
-        this.name = name;
+    history:Array<Array<number>>;
+    constructor(){
         this.map = [];
-    }
-    display(toDisp:string=this.name):void{
-        console.log(toDisp)
+        this.history = []
     }
     initWorld(n:number):void{
         const line:Array<number> = []
@@ -31,12 +27,28 @@ export default class World implements Exterior {
     getGrid():Array<Array<number>>{
         return this.map
     }
+    getNeighbour(posx:number,posy:number):number{
+        var n:number = 0;
+        for(let y = posy-1 ; y<=posy+1 ; y++){
+            for(let x = posx-1 ; x<=posx+1 ; x++){
+
+                const notMe = ((posx!=x === false) && (posy!=y === false))
+
+                if(this.map[y][x]===1 && !notMe){
+                    n++
+                }
+            }
+        }
+        return n
+    }
+    
 }
 
-const astroWorld = new World('travis')
+const astroWorld = new World()
 const antiSocial = new SocialGroups(astroWorld.getGrid())
 
 
 astroWorld.initWorld(5)
 antiSocial.bar(2,2)
 astroWorld.displayGrid()
+console.log(astroWorld.getNeighbour(1,2))
