@@ -7,18 +7,19 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 exports.__esModule = true;
-var socialGroups_1 = require("./socialGroups");
 var World = /** @class */ (function () {
-    function World() {
+    function World(size) {
+        if (size === void 0) { size = 30; }
         this.map = [];
         this.history = [];
+        this.size = size;
     }
-    World.prototype.initWorld = function (n) {
+    World.prototype.initWorld = function () {
         var line = [];
-        for (var y = 0; y < n; y++) {
+        for (var y = 0; y < this.size; y++) {
             line.push(0);
         }
-        for (var y = 0; y < n; y++) {
+        for (var y = 0; y < this.size; y++) {
             this.map.push(__spreadArrays(line));
         }
     };
@@ -40,12 +41,33 @@ var World = /** @class */ (function () {
         }
         return n;
     };
+    World.prototype.nextDay = function () {
+        var _this = this;
+        var liveAndLetDie = [];
+        for (var y = 1; y < this.size - 1; y++) {
+            for (var x = 1; x < this.size - 1; x++) {
+                if (this.getNeighbour(x, y) === 3) {
+                    liveAndLetDie.push([x, y, 1]);
+                }
+                else if (this.getNeighbour(x, y) < 2 || this.getNeighbour(x, y) > 3) {
+                    liveAndLetDie.push([x, y, 0]);
+                }
+            }
+        }
+        if (this.history.length === 0) {
+            this.history.push(JSON.parse(JSON.stringify(this.map)));
+        }
+        liveAndLetDie.forEach(function (el) {
+            _this.map[el[1]][el[0]] = el[2];
+        });
+        this.history.push(JSON.parse(JSON.stringify(this.map)));
+    };
+    World.prototype.generateDays = function (time) {
+        if (time === void 0) { time = 10; }
+        for (var days = 0; days < time; days++) {
+            this.nextDay();
+        }
+    };
     return World;
 }());
 exports["default"] = World;
-var astroWorld = new World();
-var antiSocial = new socialGroups_1["default"](astroWorld.getGrid());
-astroWorld.initWorld(5);
-antiSocial.bar(2, 2);
-astroWorld.displayGrid();
-console.log(astroWorld.getNeighbour(1, 2));
