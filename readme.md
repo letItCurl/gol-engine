@@ -1,5 +1,8 @@
 # Game Of Life in Typescript !
 
-***In development***
+This code can:
 
-see you ;)
+- Produce a matrix called: "world".
+- Execute all rules to all cell in the nxn matrix.
+- Store history in the object world.
+- Set initial patern in the world. (bar / gliders / etc)
