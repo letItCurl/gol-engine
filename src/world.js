@@ -62,6 +62,14 @@ var World = /** @class */ (function () {
         });
         this.history.push(JSON.parse(JSON.stringify(this.map)));
     };
+    World.prototype.clear = function () {
+        for (var y = 1; y < this.size - 1; y++) {
+            for (var x = 1; x < this.size - 1; x++) {
+                this.map[y][x] = 0;
+            }
+        }
+        this.history.push(JSON.parse(JSON.stringify(this.map)));
+    };
     World.prototype.generateDays = function (time) {
         if (time === void 0) { time = 10; }
         for (var days = 0; days < time; days++) {

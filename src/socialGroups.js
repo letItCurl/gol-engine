@@ -19,6 +19,13 @@ var SocialGroups = /** @class */ (function () {
         this.bar(x, y);
         this.bar(x + 1, y + 1);
     };
+    SocialGroups.prototype.barFive = function (x, y) {
+        this.map[y][x - 2] = 1;
+        this.map[y][x - 1] = 1;
+        this.map[y][x] = 1;
+        this.map[y][x + 1] = 1;
+        this.map[y][x + 2] = 1;
+    };
     return SocialGroups;
 }());
 exports["default"] = SocialGroups;
