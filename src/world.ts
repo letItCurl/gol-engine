@@ -61,8 +61,8 @@ export default class World implements Exterior {
         this.history.push(JSON.parse(JSON.stringify(this.map)))
     }
     clear():void{
-        for(let y = 1 ; y< this.size-1 ; y++){
-            for(let x = 1 ; x< this.size-1 ; x++){
+        for(let y = 0 ; y< this.size ; y++){
+            for(let x = 0 ; x< this.size ; x++){
                 this.map[y][x]=0;
             }
         }

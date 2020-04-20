@@ -29,5 +29,24 @@ export default class SocialGroups implements Exterior{
         this.map[y][x+1] = 1
         this.map[y][x+2] = 1
     }
+    glider(x:number,y:number):void{
+        this.map[y+1][x] = 1
+        this.map[y][x] = 0
+        this.map[y][x+1] = 1
+        this.map[y-1][x+1] = 1
+        this.map[y-1][x] = 1
+        this.map[y-1][x-1] = 1
+    }
+    uClown(x:number,y:number):void{
+        this.map[y+1][x-1] = 1
+        this.map[y+1][x] = 0
+        this.map[y+1][x+1] = 1
+        this.map[y][x-1] = 1
+        this.map[y][x] = 0
+        this.map[y][x+1] = 1
+        this.map[y-1][x-1] = 1
+        this.map[y-1][x] = 1
+        this.map[y-1][x+1] = 1
+    }
 }
 

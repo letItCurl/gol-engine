@@ -26,6 +26,25 @@ var SocialGroups = /** @class */ (function () {
         this.map[y][x + 1] = 1;
         this.map[y][x + 2] = 1;
     };
+    SocialGroups.prototype.glider = function (x, y) {
+        this.map[y + 1][x] = 1;
+        this.map[y][x] = 0;
+        this.map[y][x + 1] = 1;
+        this.map[y - 1][x + 1] = 1;
+        this.map[y - 1][x] = 1;
+        this.map[y - 1][x - 1] = 1;
+    };
+    SocialGroups.prototype.uClown = function (x, y) {
+        this.map[y + 1][x - 1] = 1;
+        this.map[y + 1][x] = 0;
+        this.map[y + 1][x + 1] = 1;
+        this.map[y][x - 1] = 1;
+        this.map[y][x] = 0;
+        this.map[y][x + 1] = 1;
+        this.map[y - 1][x - 1] = 1;
+        this.map[y - 1][x] = 1;
+        this.map[y - 1][x + 1] = 1;
+    };
     return SocialGroups;
 }());
 exports["default"] = SocialGroups;

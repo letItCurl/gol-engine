@@ -63,8 +63,8 @@ var World = /** @class */ (function () {
         this.history.push(JSON.parse(JSON.stringify(this.map)));
     };
     World.prototype.clear = function () {
-        for (var y = 1; y < this.size - 1; y++) {
-            for (var x = 1; x < this.size - 1; x++) {
+        for (var y = 0; y < this.size; y++) {
+            for (var x = 0; x < this.size; x++) {
                 this.map[y][x] = 0;
             }
         }
