@@ -76,6 +76,47 @@ var World = /** @class */ (function () {
             this.nextDay();
         }
     };
+    World.prototype.bar = function (x, y) {
+        this.map[y][x - 1] = 1;
+        this.map[y][x] = 1;
+        this.map[y][x + 1] = 1;
+    };
+    World.prototype.block = function (x, y) {
+        this.map[y][x] = 1;
+        this.map[y][x + 1] = 1;
+        this.map[y + 1][x] = 1;
+        this.map[y + 1][x + 1] = 1;
+    };
+    World.prototype.frog = function (x, y) {
+        this.bar(x, y);
+        this.bar(x + 1, y + 1);
+    };
+    World.prototype.barFive = function (x, y) {
+        this.map[y][x - 2] = 1;
+        this.map[y][x - 1] = 1;
+        this.map[y][x] = 1;
+        this.map[y][x + 1] = 1;
+        this.map[y][x + 2] = 1;
+    };
+    World.prototype.glider = function (x, y) {
+        this.map[y + 1][x] = 1;
+        this.map[y][x] = 0;
+        this.map[y][x + 1] = 1;
+        this.map[y - 1][x + 1] = 1;
+        this.map[y - 1][x] = 1;
+        this.map[y - 1][x - 1] = 1;
+    };
+    World.prototype.uClown = function (x, y) {
+        this.map[y + 1][x - 1] = 1;
+        this.map[y + 1][x] = 0;
+        this.map[y + 1][x + 1] = 1;
+        this.map[y][x - 1] = 1;
+        this.map[y][x] = 0;
+        this.map[y][x + 1] = 1;
+        this.map[y - 1][x - 1] = 1;
+        this.map[y - 1][x] = 1;
+        this.map[y - 1][x + 1] = 1;
+    };
     return World;
 }());
 exports["default"] = World;
