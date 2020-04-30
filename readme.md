@@ -98,7 +98,7 @@ node ./gol.js
 
 # Important
 
-***Remenber to init() before make using the object world.***
+***Remenber to init() before using the object "world".***
 
 # Technical stack
 - TS
