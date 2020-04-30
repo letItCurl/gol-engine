@@ -13,7 +13,7 @@ You can create an instance of the object world and with it you can:
 - It store automatically the history in the object world as: world.history
 - Set initial patern in the world. (bar / gliders / etc)
 
-# How to use this ? [![](https://img.shields.io/badge/version-1.0.0-green.svg)]()
+# How to use this ? [![](https://img.shields.io/badge/version-1.0.0-green.svg)](https://www.npmjs.com/package/gol-engine)
 
 ## installation:
 cd into your project and execute:
