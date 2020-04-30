@@ -41,8 +41,8 @@ const myWorld = new world['default'](5) //The argument is the size on the matrix
 | Methods: | Desc: |
 | :--- | :--- |
 | initWorld() | This create the inital matrix (no arguments) |
-| displayGrid() |  |
-| getGrid() |  | 
+| displayGrid() | console.log the grid |
+| getGrid() | return the map data | 
 | getNeighbour(posx:number,posy:number) | return the numbers of neighbour |
 | nextDay() | generate the next frame and save the previous one in the history | 
 | generateDays(time:number=10) | execute nextDays() n times. Default value of n=10 |
