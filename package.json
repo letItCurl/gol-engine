@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Game Of Life in typescript",
   "main": "index.js",
+  "repository": "https://github.com/letItCurl/gol-engine.git",
+  "author": "letItCurl <rolandlopez.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": ""
