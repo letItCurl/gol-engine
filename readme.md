@@ -13,9 +13,92 @@ You can create an instance of the object world and with it you can:
 - It store automatically the history in the object world as: world.history
 - Set initial patern in the world. (bar / gliders / etc)
 
-# How to use this ?
+# How to use this ? [![](https://img.shields.io/badge/version-1.0.0-green.svg)]()
 
-***DOC COMMING SOON***
+## installation:
+cd into your project and execute:
+```
+npm i gol-engine
+//or with yarn
+yarn add gol-engine
+```
+
+## Classes:
+
+### World class:
+
+>This class do all the job: generate days / save history / set patterns
+```
+const {world} = require('gol-engine')
+const myWorld = new world['default'](5) //The argument is the size on the matrix
+```
+
+| Data: | Desc: |
+| :--- | :---: |
+| map | nxn matrix of 0 or 1 |
+| history | list of nxn matrix of 0 or 1 |
+
+| Methods: | Desc: |
+| :--- | :--- |
+| initWorld() | This create the inital matrix (no arguments) |
+| displayGrid() |  |
+| getGrid() |  | 
+| getNeighbour(posx:number,posy:number) | return the numbers of neighbour |
+| nextDay() | generate the next frame and save the previous one in the history | 
+| generateDays(time:number=10) | execute nextDays() n times. Default value of n=10 |
+| bar(x:number,y:number) | Spawn a bar of 3 cells at (x,y) | 
+| block(x:number,y:number) | Spawn a block of 2x2 cells at (x,y) | 
+| frog(x:number,y:number) | Spawn a frog @(x,y) | 
+| barFive(x:number,y:number) | Spawn a bar of five cells at (x,y) | 
+| glider(x:number,y:number) | Spawn a Glider at (x,y) | 
+| uClown(x:number,y:number) | Spawn a Clown at (x,y) | 
+
+## Example:
+
+Here is the instruction for basic usage:
+- create a file and cd into it.
+- install the package with:
+```
+npm i gol-engine
+//or with yarn
+yarn add gol-engine
+```
+- create a file named "gol.js"
+- paste the following code inside "gol.js"
+```
+const {world} = require('gol-engine')
+// in your favorite framework:
+// import {world} from 'gol-engine'
+
+const myWorld = new world['default'](5)
+
+console.log('INIT..')
+myWorld.initWorld()
+
+console.log('### INITIAL MAP ###')
+console.log(myWorld.map)
+
+console.log('SET BAR @(2,2)...')
+myWorld.bar(2,2)
+
+console.log('### MAP WITH BAR ###')
+console.log(myWorld.map)
+
+console.log('GENRERATING NEXT FRAME...')
+myWorld.nextDay()
+
+console.log('### FINAL MAP ###')
+console.log(myWorld.map)
+```
+- run gol.js:
+```
+node ./gol.js
+```
+- enjoy the logs !
+
+# Important
+
+***Remenber to init() before make using the object world.***
 
 # Technical stack
 - TS
